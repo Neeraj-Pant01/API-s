@@ -11,7 +11,7 @@ const errController = (status, message) =>{
 
 exports.register = async(req,res,next)=>{
     try{
-        const user = await userModel.findOne({email:req.phNo})
+        const user = await userModel.findOne({phNo:req.phNo})
         if(user) return next(errController(401, "user with this mobile number is already exists !"))
 
         const newUser = new userModel(req.body)
